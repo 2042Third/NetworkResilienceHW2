@@ -14,8 +14,8 @@ import java.util.Set;
 public class Graph {
     protected double p = 0.0;
     protected double N = 0.0;
-    protected Map<String,Node> g = new HashMap<String,Node>();
-
+    protected Map<String,Node> g = new HashMap<>();
+    public Map<Integer, Integer> dd = new HashMap<>();
 
     /**
      * Initialize the graph class.
@@ -42,6 +42,29 @@ public class Graph {
         return "NO GRAPH SPECIFIED. -Network Resilience by Yi Yang";
     }
 
+    /**
+     * Set the degree distribution statistics.
+     * @param dist; degree distribution.
+     * */
+    public void setDegreeDistro(Map<Integer, Integer> dist){
+        dd = dist;
+    }
+
+    /**
+     * Get the degree distribution of the graph.
+     * */
+    public Map<Integer,Integer> getDD() {
+        for (String s: g.keySet()){
+            Integer degree = g.get(s).getDegree();
+            if(!dd.containsKey(degree)){
+                dd.put(degree,1);
+            }
+            else {
+                dd.replace(degree,dd.get(degree)+1);
+            }
+        }
+        return dd;
+    }
 
     /**
      * Generates unconnected N nodes.

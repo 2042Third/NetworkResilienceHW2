@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class GraphOutput {
     public Graph graph;
@@ -21,7 +22,9 @@ public class GraphOutput {
     public void setGraph(Graph g){
         graph = g;
     }
-
+    /**
+     * Writes the input file into the default location.
+     * */
     public void writeGraph(String fName) throws IOException {
         Path p = Paths.get(defaultDir+fName);
         File f = new File(defaultDir);
@@ -31,6 +34,26 @@ public class GraphOutput {
             System.out.println("No directory created.");
         }
         Files.write(p,strToBytes(graph.getCSV()));
+    }
+    /**
+     * Writes the input file into the default location.
+     * */
+    public void writeMap(String fName, Map<Integer,Integer> m) throws IOException {
+        Path p = Paths.get(defaultDir+fName);
+        File f = new File(defaultDir);
+        if (f.mkdirs()){
+            System.out.println("New directory created at "+ defaultDir);
+        } else {
+            System.out.println("No directory created.");
+        }
+        StringBuilder x = new StringBuilder();
+        for (Integer i: m.keySet()){
+            x.append(i)
+                    .append(", ")
+                    .append(m.get(i))
+                    .append("\n");
+        }
+        Files.write(p,strToBytes(x.toString()));
     }
 
     private byte[] strToBytes (String a) {
