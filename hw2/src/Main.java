@@ -35,12 +35,15 @@ public class Main {
         }
     }
 
-    //
+    /**
+     * Runs question d, e
+     * */
     public static void runQd(){
         String fileName = "question_d.csv";
         Integer k = 10;
         Graph g = new RandomGraph(500,0.1);
         g.run(k);
+        g.printStats(g.getDD());
         write(fileName, g);
     }
 

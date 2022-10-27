@@ -135,6 +135,7 @@ public class Graph {
      * Get the degree distribution of the graph.
      * */
     public Map<Integer,Integer> getDD() {
+        dd = new HashMap<>();
         for (String s: g.keySet()){
             Integer degree = g.get(s).getDegree();
             if(!dd.containsKey(degree)){
@@ -155,5 +156,18 @@ public class Graph {
             String nodeid = String.valueOf(i);
             g.put(nodeid,new Node(nodeid));
         }
+    }
+
+    public void printStats(Map<Integer,Integer> m){
+        double totalNodes = 0;
+        double totalDegree = 0;
+        double avgDegree = 0;
+        for (int i:m.keySet()){
+            totalDegree+=i*m.get(i);
+            totalNodes+=m.get(i);
+        }
+        avgDegree = totalDegree/totalNodes;
+        System.out.printf("Toal nodes: %s\nTotal degree:%s\nAverage degree:%s\n",totalNodes,totalDegree,avgDegree);
+
     }
 }

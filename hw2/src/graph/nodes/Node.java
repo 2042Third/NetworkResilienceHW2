@@ -42,6 +42,13 @@ public class Node {
     public boolean isLinkedWith(Node incomingNode){
         return links.contains(incomingNode.id);
     }
+    /**
+     * Checks if this is linked with the node in question.
+     * @param incomingNodeId; input node id.
+     * */
+    public boolean isLinkedWith(String incomingNodeId){
+        return links.contains(incomingNodeId);
+    }
 
     /**
      * Get the csv representation of this node's links.

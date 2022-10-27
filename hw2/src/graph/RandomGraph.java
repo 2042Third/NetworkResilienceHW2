@@ -72,9 +72,9 @@ public class RandomGraph extends Graph {
     private void randEdges (Integer k) {
         for (int i=0; i<N ;i++){
             for (int f=i+1;f<N;f++){
-                if(randEdge(k)){
-                    String a = String.valueOf(i);
-                    String b = String.valueOf(f);
+                String a = String.valueOf(i);
+                String b = String.valueOf(f);
+                if(randEdge(k) && !g.get(a).isLinkedWith(b)){
                     g.get(a).link(b);
                     g.get(b).link(a);
                 }
