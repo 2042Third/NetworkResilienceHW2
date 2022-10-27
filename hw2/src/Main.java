@@ -13,34 +13,43 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
-        runAndGetDD(1000,0.01,100,"100times");
+        runQa();
     }
 
     /**
      * Runs the question a and b of hw2 network resilience.
      * */
-    public void runQa(){
-//          question a and b
+    public static void runQa(){
         String fileName = "question_a.csv";
         Graph g = new RandomGraph(50,0.1);
-//        String fileName = "question_c.csv";
-//        Graph g = new RandomGraph(1000,0.01);
         g.run();
         GraphOutput gout = new GraphOutput();
         gout.setGraph(g);
         try{
             gout.writeGraph(fileName);
         }catch (IOException e){
+            e.printStackTrace();
             System.out.println("File writing failure.");
-            System.out.println(e.getMessage());
         }
         System.out.println("Written File");
     }
 
     /**
+     * Runs and writes question c of hw2 network resilience.
+     * */
+    public static void runQc(){
+        try{
+            runAndGetDD(1000,0.01,100,"100times");
+        }catch(IOException e){
+            e.printStackTrace();
+            System.out.println("Question c failed.");
+        }
+    }
+
+    /**
      * Run the graph generation x times, and return the accumulated
      * */
-    public static void runAndGetDD(int N, double p,int times, String outFile) throws InterruptedException, IOException {
+    public static void runAndGetDD(int N, double p,int times, String outFile) throws IOException {
         final BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>();
         Thread pgs = progressPrint(queue);
         Graph g = new RandomGraph(N,p);

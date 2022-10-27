@@ -18,6 +18,7 @@ public class GraphOutput {
 
     /**
      * Sets the graph to be outputted.
+     * @param g; graph object
      * */
     public void setGraph(Graph g){
         graph = g;
@@ -37,6 +38,8 @@ public class GraphOutput {
     }
     /**
      * Writes the input file into the default location.
+     * @param fName ; file name
+     * @param m ; a map that contains integers for conversion to a csv
      * */
     public void writeMap(String fName, Map<Integer,Integer> m) throws IOException {
         Path p = Paths.get(defaultDir+fName);
@@ -55,7 +58,11 @@ public class GraphOutput {
         }
         Files.write(p,strToBytes(x.toString()));
     }
-
+    /**
+     * Converts a String object to bytes.
+     * @param a ; String object
+     * @return byte array
+     * */
     private byte[] strToBytes (String a) {
         return a.getBytes();
     }
