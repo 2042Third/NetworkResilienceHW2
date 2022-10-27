@@ -24,6 +24,12 @@ public class RandomGraph extends Graph {
         return false;
     }
 
+    public boolean run (Integer k) {
+        this.generateNodes();
+        randEdges(k);
+        return false;
+    }
+
     @Override
     public String getCSV () {
         StringBuilder out = new StringBuilder();
@@ -58,5 +64,30 @@ public class RandomGraph extends Graph {
     private boolean randEdge() {
         double rand = Math.random();
         return rand < p;
+    }
+    /**
+     * For all N(N-1)/2 possible edges, link if a random
+     * number generated is greater than p.
+     * */
+    private void randEdges (Integer k) {
+        for (int i=0; i<N ;i++){
+            for (int f=i+1;f<N;f++){
+                if(randEdge(k)){
+                    String a = String.valueOf(i);
+                    String b = String.valueOf(f);
+                    g.get(a).link(b);
+                    g.get(b).link(a);
+                }
+            }
+        }
+    }
+    /**
+     * Generate a random number between 0 and 1.
+     * If the number exceeds p return true, else false.
+     * @return true, if random number greater than p.
+     * */
+    private boolean randEdge(Integer k) {
+        double rand = Math.random();
+        return rand < k/(N-1);
     }
 }

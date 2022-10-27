@@ -6,10 +6,13 @@ package graph;
 
 import graph.nodes.Node;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Graph {
     protected double p = 0.0;
@@ -28,9 +31,87 @@ public class Graph {
     }
 
     /**
+     * Run the graph generation x times, and return the accumulated
+     * */
+    public static void runAndGetDD(int N, double p,int times, String outFile) throws IOException {
+        final BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>();
+        Thread pgs = progressPrint(queue);
+        pgs.start();
+        Map<Integer,Integer> dd = getDD(N,p);
+        queue.add((int)(1/times)*100);
+        if (times < 1){
+            return;
+        }
+        for (int i=0 ;i< times-1;i++){
+            dd = getDD(N,p,dd);
+            queue.add((int)(i/times)*100);
+        }
+        queue.add(100);
+        new GraphOutput().writeMap(outFile,dd);
+    }
+
+    /**
+     *  Run the simulation adn return the degree distribution.
+     * @param N ; number of nodes
+     * @param p ; edge probability
+     * @return degree distribution
+     * */
+    public static Map<Integer,Integer> getDD(int N, double p){
+        Graph g = new RandomGraph(N,p);
+        g.run();
+        return g.getDD();
+    }
+
+    /**
+     *  Run the simulation adn return the degree distribution.
+     * @param N ; number of nodes
+     * @param p ; edge probability
+     * @param dd ; existing degree distribution
+     * @return degree distribution
+     * */
+    public static Map<Integer,Integer> getDD(int N, double p, Map<Integer, Integer> dd){
+        Graph g = new RandomGraph(N,p);
+        g.setDegreeDistro(dd);
+        g.run();
+        return g.getDD();
+    }
+
+    /**
+     * Returns a built thread object that can print the progress of the
+     * */
+    public static Thread progressPrint(BlockingQueue<Integer> queue){
+        return new Thread(()-> {
+            int i = 0;
+            while(i < 100) {
+                System.out.print("[");
+                try {
+                    i = queue.take();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                int j=0;
+                while(j++<i){
+                    System.out.print("#");
+                }
+                while(j++<100){
+                    System.out.print(" ");
+                }
+                System.out.print("] : "+ i+"%");
+                System.out.print("\r");
+            }
+        });
+    }
+
+    /**
      * Runs the graph generation.
      * */
     public boolean run () {
+        return false;
+    }
+    /**
+     * Runs the graph generation with k average degree.
+     * */
+    public boolean run (Integer k) {
         return false;
     }
 
