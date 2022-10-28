@@ -7,10 +7,7 @@ package graph;
 import graph.nodes.Node;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -19,7 +16,7 @@ public class Graph {
     protected double N = 0.0;
     protected Map<String,Node> g = new HashMap<>();
     public Map<Integer, Integer> dd = new HashMap<>();
-
+    public List<Set<String>> cc = new ArrayList<Set<String>>();
     /**
      * Initialize the graph class.
      * @param NIn N; number of nodes.
@@ -28,6 +25,78 @@ public class Graph {
     public Graph(double NIn, double pIn){
         p = pIn;
         N = NIn;
+    }
+
+    /**
+     * Iterate through the net, returns a list of connected components.
+     * */
+    public List<Set<String>> getConnectedComponents(){
+        for (String s : g.keySet()){
+            if(!containsCC(s,cc)){
+                addToConnectedComponents(s);
+                for (int i=0 ;i<cc.size();i++) {
+                    Set<String> c = cc.get(i);
+                    Set<String> current = new HashSet<>();
+                    current = iterateConnectedComponent(c);
+                    while (c.size() != current.size()) {
+                        System.out.println(c.size()+", set size="+cc.size());
+//                        c = current;
+                        cc.set(i,current);
+                        current = iterateConnectedComponent(c);
+                    }
+                }
+            }
+        }
+        return cc;
+    }
+
+    public boolean containsCC(String incomingNodeId, List<Set<String>> conComp){
+        for (Set<String> c: conComp){
+
+            if(c.contains(incomingNodeId)){
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Adds the input node to a new connected component.
+     * @return true if the node doesn't exist in any of the existing component,
+     *          false if the node exists in one of them.
+     * */
+    public boolean addToConnectedComponents(String incomingNodeId){
+        // Check if it exists.
+        for (Set<String> c: cc){
+            if(c.contains(incomingNodeId)){
+                return false;
+            }
+        }
+        // Add new connected component
+        HashSet<String> set = new HashSet<String>();
+        set.add(incomingNodeId);
+        cc.add(set);
+        return true;
+    }
+    public void printcc(){
+        System.out.println("{");
+        for (Set<String> set: cc){
+            System.out.println(set);
+        }
+        System.out.println("}");
+    }
+    /**
+     * Iterate through all nodes in a set, and return a set of nodes that are connected to it
+     * by one edge.
+     * @param inputC ; connected component
+     * @return a set of nodes that are at most one edge away from one of the input nodes.
+     * */
+    public Set<String> iterateConnectedComponent(Set<String> inputC){
+        Set<String> c = new HashSet<>();
+        for (String s: inputC){
+            c.add(s);
+            c.addAll(g.get(s).getLinksSet());
+        }
+        return c;
     }
 
     /**

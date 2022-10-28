@@ -43,10 +43,18 @@ public class Node {
     public boolean unlink(String incomingNodeId){ return links.remove(incomingNodeId); }
     /**
      * Return all links of this node.
-     * @return true if removal successful, else false.
+     * @return list of nodes connected.
      * */
     public String[] getLinks(){
         return links.toArray(new String[0]);
+    }
+    /**
+     * Return all links of this node.
+     *
+     * @return set of nodes connected.
+     */
+    public Set<String> getLinksSet(){
+        return links;
     }
     /**
      * Checks if this is linked with the node in question.

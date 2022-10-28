@@ -7,13 +7,15 @@ import graph.GraphOutput;
 import graph.RandomGraph;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
-        runQa(); // question a
-        runQc(); // question c
-        runQd(); // question f
+//        runQa(); // question a
+//        runQc(); // question c
+//        runQd(); // question f
         runQf();
     }
 
@@ -98,12 +100,14 @@ public class Main {
         GraphOutput gout = new GraphOutput();
         StringBuilder x = new StringBuilder();
         x.append("allGraphs = [");
-        for (int i=0; i<100;i++) {
+//        for (int i=0; i<100;i++) {
+            for (int i=0; i<1;i++) {
             g = new RandomGraph(N,p);
             g.run();
-            g.printStats(g.getDD());
+//            g.printStats(g.getDD());
             g.randRmNodes(500,rmp);
-            g.printStats(g.getDD());
+            List<Set<String>> cc = g.getConnectedComponents();
+//            g.printStats(g.getDD());
             x.append("["+"g"+i+", "+"gv"+i+"]");
             if(i<99){
                 x.append(", ");
