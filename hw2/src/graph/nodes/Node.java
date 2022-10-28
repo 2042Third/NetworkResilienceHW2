@@ -36,6 +36,19 @@ public class Node {
         links.add(incomingNodeid);
     }
     /**
+     * Removes a node.
+     * @param incomingNodeId ; incoming node id.
+     * @return true if removal successful, else false.
+     * */
+    public boolean unlink(String incomingNodeId){ return links.remove(incomingNodeId); }
+    /**
+     * Return all links of this node.
+     * @return true if removal successful, else false.
+     * */
+    public String[] getLinks(){
+        return links.toArray(new String[0]);
+    }
+    /**
      * Checks if this is linked with the node in question.
      * @param incomingNode; input node to be checked.
      * */

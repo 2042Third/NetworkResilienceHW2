@@ -31,16 +31,48 @@ public class Graph {
     }
 
     /**
+     * Randomly removes n nodes from the graph.
+     * @param n ; number of nodes to be removed.
+     * @param rmp ; removal probability, suggests the probability of a node tobe removed.
+     * */
+    public void randRmNodes(Integer n, double rmp){
+        int rmd = 0; // # of nodes removed
+        while(rmd<n){
+            if(Math.random()<rmp){
+                int idx = (int) Math.floor(Math.random()*N%N);
+                if(rmNode(String.valueOf(idx))){
+                    rmd++;
+                }
+            }
+        }
+    }
+
+    /**
+     * Removes the input node and all links that connects to it.
+     * @param nodeId ; node to be removed.
+     * */
+    public boolean rmNode(String nodeId){
+        if (!g.containsKey(nodeId)){
+            return false;
+        }
+        String[] links = g.get(nodeId).getLinks();
+        for (String s : links){
+            g.get(s).unlink(nodeId);
+        }
+        return g.remove(nodeId) != null;
+    }
+
+    /**
      * Run the graph generation x times, and return the accumulated
      * */
-    public static void runAndGetDD(int N, double p,int times, String outFile) throws IOException {
+    public static Map<Integer, Integer> runAndGetDD(int N, double p,int times, String outFile) throws IOException {
         final BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>();
         Thread pgs = progressPrint(queue);
         pgs.start();
         Map<Integer,Integer> dd = getDD(N,p);
         queue.add((int)(1/times)*100);
         if (times < 1){
-            return;
+            return dd;
         }
         for (int i=0 ;i< times-1;i++){
             dd = getDD(N,p,dd);
@@ -48,6 +80,7 @@ public class Graph {
         }
         queue.add(100);
         new GraphOutput().writeMap(outFile,dd);
+        return dd;
     }
 
     /**
@@ -163,9 +196,16 @@ public class Graph {
         double totalDegree = 0;
         double avgDegree = 0;
         for (int i:m.keySet()){
+            System.out.printf("%s, ",String.valueOf(i));
             totalDegree+=i*m.get(i);
             totalNodes+=m.get(i);
         }
+        System.out.println("");
+        for (int i: m.values()){
+            System.out.printf("%s, ",String.valueOf(i));
+
+        }
+        System.out.println("");
         avgDegree = totalDegree/totalNodes;
         System.out.printf("Toal nodes: %s\nTotal degree:%s\nAverage degree:%s\n",totalNodes,totalDegree,avgDegree);
 

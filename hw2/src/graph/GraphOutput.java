@@ -28,7 +28,7 @@ public class GraphOutput {
      * */
     public void writeGraph(String fName) throws IOException {
         Path p = Paths.get(defaultDir+fName);
-        File f = new File(defaultDir);
+        File f = new File(defaultDir+fName).getParentFile();
         if (f.mkdirs()){
             System.out.println("New directory created at "+ defaultDir);
         } else {
@@ -43,7 +43,7 @@ public class GraphOutput {
      * */
     public void writeMap(String fName, Map<Integer,Integer> m) throws IOException {
         Path p = Paths.get(defaultDir+fName);
-        File f = new File(defaultDir);
+        File f = new File(defaultDir+fName).getParentFile();
         if (f.mkdirs()){
             System.out.println("New directory created at "+ defaultDir);
         } else {
