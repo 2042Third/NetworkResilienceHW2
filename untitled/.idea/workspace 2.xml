@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a7985de0-7ce0-4da3-bb98-512298f6c0be" name="Changes" comment="Connected components">
+      <change beforePath="$PROJECT_DIR$/../hw2/src/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/src/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/graph(2)/Graph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/graph(2)/GraphOutput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw2/graph/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/graph/nodes/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw2/graph/nodes/Node.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GdyHEH1QWzMBYdNnhkelkKVnaU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="graph.Graph" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="hw2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7985de0-7ce0-4da3-bb98-512298f6c0be" name="Changes" comment="" />
+      <created>1666732668729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666732668729</updated>
+      <workItem from="1666732670382" duration="2471000" />
+      <workItem from="1666735556326" duration="7548000" />
+      <workItem from="1666757139715" duration="4573000" />
+      <workItem from="1666886969537" duration="338000" />
+      <workItem from="1666887325223" duration="19074000" />
+      <workItem from="1666984629058" duration="5623000" />
+    </task>
+    <task id="LOCAL-00001" summary="Perfectly elegant and efficient Java code. I love Java !!!!!!!!!!!!!!!!!!!">
+      <created>1666764121969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666764121969</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Perfectly elegant and efficient Java code. I love Java !!!!!!!!!!!!!!!!!!!">
+      <created>1666764137684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666764137684</updated>
+    </task>
+    <task id="LOCAL-00003" summary="built question structures">
+      <created>1666887774068</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666887774068</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Question d">
+      <created>1666891319755</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666891319755</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Question d">
+      <created>1666893749745</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666893749745</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Question d">
+      <created>1666900822572</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666900822572</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Question f">
+      <created>1666918163459</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666918163459</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Question f">
+      <created>1666918436431</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666918436431</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Automatically writes python programs with the output.">
+      <created>1666920685343</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666920685343</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Automatically writes python programs with the output.">
+      <created>1666922910113</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666922910113</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Connected components">
+      <created>1666990198863</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666990198863</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Perfectly elegant and efficient Java code. I love Java !!!!!!!!!!!!!!!!!!!" />
+    <MESSAGE value="built question structures" />
+    <MESSAGE value="Question d" />
+    <MESSAGE value="Question f" />
+    <MESSAGE value="Automatically writes python programs with the output." />
+    <MESSAGE value="Connected components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connected components" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../hw2/src/graph/Graph.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

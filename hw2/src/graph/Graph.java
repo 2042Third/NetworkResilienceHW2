@@ -35,14 +35,13 @@ public class Graph {
             if(!containsCC(s,cc)){
                 addToConnectedComponents(s);
                 for (int i=0 ;i<cc.size();i++) {
-                    Set<String> c = cc.get(i);
                     Set<String> current = new HashSet<>();
-                    current = iterateConnectedComponent(c);
-                    while (c.size() != current.size()) {
-                        System.out.println(c.size()+", set size="+cc.size());
+                    current = iterateConnectedComponent(cc.get(i));
+                    while (cc.get(i).size() != current.size()) {
+                        System.out.println(cc.get(i).size()+", set size="+cc.size());
 //                        c = current;
                         cc.set(i,current);
-                        current = iterateConnectedComponent(c);
+                        current = iterateConnectedComponent(current);
                     }
                 }
             }

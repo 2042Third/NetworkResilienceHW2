@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e837cfbb-896d-489a-95ea-2dacfddbb35b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../hw2/src/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/src/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw2/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw2/graph/Graph.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
