@@ -11,9 +11,9 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
-//        runQa(); // question a
-//        runQc(); // question c
-//        runQd(); // question f
+        runQa(); // question a
+        runQc(); // question c
+        runQd(); // question f
         runQf();
     }
 
@@ -34,13 +34,6 @@ public class Main {
      * Runs and writes question c of hw2 network resilience.
      * */
     public static void runQc(){
-//        try{
-//            Map<Integer, Integer> dd = Graph.runAndGetDD(1000,0.01,100,"qc/100times.csv");
-//            new RandomGraph(1000,0.01).printStats(dd);
-//        }catch(IOException e){
-//            e.printStackTrace();
-//            System.out.println("Question c failed.");
-//        }
 
         double N = 1000;
         double p = 0.01;
