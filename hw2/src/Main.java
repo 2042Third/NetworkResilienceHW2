@@ -34,12 +34,43 @@ public class Main {
      * Runs and writes question c of hw2 network resilience.
      * */
     public static void runQc(){
-        try{
-            Map<Integer, Integer> dd = Graph.runAndGetDD(1000,0.01,100,"qc/100times.csv");
-            new RandomGraph(1000,0.01).printStats(dd);
-        }catch(IOException e){
+//        try{
+//            Map<Integer, Integer> dd = Graph.runAndGetDD(1000,0.01,100,"qc/100times.csv");
+//            new RandomGraph(1000,0.01).printStats(dd);
+//        }catch(IOException e){
+//            e.printStackTrace();
+//            System.out.println("Question c failed.");
+//        }
+
+        double N = 1000;
+        double p = 0.01;
+        double rmp=1.0/2;
+        Graph g = new RandomGraph(N,p);
+        GraphOutput gout = new GraphOutput();
+        StringBuilder x = new StringBuilder();
+        x.append("allGraphs = [");
+        for (int i=0; i<100;i++) {
+            g = new RandomGraph(N,p);
+            g.run();
+            g.printStats(g.getDD());
+            x.append("["+"g"+i+", "+"gv"+i+"]");
+            if(i<99){
+                x.append(", ");
+            }
+            try {
+                gout.writePython("qc/question_c.py", "g"+i, "gv"+i, g.getDD());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Cannot write python file output");
+            }
+        }
+        x.append("]\n");
+
+        try {
+            gout.appendTo("qc/question_c.py",x.toString());
+        } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Question c failed.");
+            System.out.println("Cannot write python file end output");
         }
         System.out.println("xxxxxxxxxxxxxxxx above are stats for question c xxxxxxxxxxxxxxx");
     }
@@ -70,6 +101,35 @@ public class Main {
         g.randRmNodes(500,rmp);
         g.printStats(g.getDD());
         write(fileName, g);
+
+        GraphOutput gout = new GraphOutput();
+        StringBuilder x = new StringBuilder();
+        x.append("allGraphs = [");
+        for (int i=0; i<100;i++) {
+            g = new RandomGraph(N,p);
+            g.run();
+            g.printStats(g.getDD());
+            g.randRmNodes(500,rmp);
+            g.printStats(g.getDD());
+            x.append("["+"g"+i+", "+"gv"+i+"]");
+            if(i<99){
+                x.append(", ");
+            }
+            try {
+                gout.writePython("qf/question_f.py", "g"+i, "gv"+i, g.getDD());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Cannot write python file output");
+            }
+        }
+        x.append("]\n");
+
+        try {
+            gout.appendTo("qf/question_f.py",x.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Cannot write python file end output");
+        }
         System.out.println("xxxxxxxxxxxxxxxx above are stats for question f xxxxxxxxxxxxxxx");
     }
 

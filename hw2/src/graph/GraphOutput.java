@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Map;
 
 public class GraphOutput {
@@ -67,4 +68,63 @@ public class GraphOutput {
         return a.getBytes();
     }
 
+    /**
+     * Append to fName file, two python lists from the given map.
+     * */
+    public void writePython(String fName,String varName, String varValue, Map<Integer, Integer> m) throws IOException {
+
+        Path p = Paths.get(defaultDir+fName);
+        if(!new File(defaultDir+fName).exists()){
+            Files.write(p,strToBytes(""));
+        }
+        File f = new File(defaultDir+fName).getParentFile();
+        if (f.mkdirs()){
+            System.out.println("New directory created at "+ defaultDir);
+        } else {
+            System.out.println("No directory created.");
+        }
+        StringBuilder x = new StringBuilder();
+        Integer[] keys = m.keySet().toArray(new Integer[0]);
+        Integer[] values = m.values().toArray(new Integer[0]);
+
+        buildPythonList(varName, x, keys, keys);
+        buildPythonList(varValue, x, keys, values);
+
+
+        Files.write(p,strToBytes(x.toString()), StandardOpenOption.APPEND);
+
+    }
+    /**
+     * Append to fName file.
+     * */
+    public void appendTo(String fName,String a) throws IOException {
+
+        Path p = Paths.get(defaultDir+fName);
+        if(!new File(defaultDir+fName).exists()){
+            Files.write(p,strToBytes(""));
+        }
+        File f = new File(defaultDir+fName).getParentFile();
+        if (f.mkdirs()){
+            System.out.println("New directory created at "+ defaultDir);
+        } else {
+            System.out.println("No directory created.");
+        }
+
+
+        Files.write(p,strToBytes(a), StandardOpenOption.APPEND);
+
+    }
+    /**
+     * Builds a python list from the given information.
+     * */
+    public void buildPythonList(String varValue, StringBuilder x, Integer[] keys, Integer[] values) {
+        x.append(varValue).append(" = [");
+        for (int i=0;i< values.length;i++){
+            x.append(String.valueOf(values[i]));
+            if(i<keys.length-1){
+                x.append(", ");
+            }
+        }
+        x.append("]\n");
+    }
 }
